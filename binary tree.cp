@@ -345,6 +345,38 @@ class node{
             
             
         }
+    void top_view(node*root)
+        {
+            queue<pair<node*,pair<int,int>>>que;
+            que.push({root,{0,0}});
+            map<int,vector<int>>mp;
+            
+            while(que.size()>0)
+            {
+                pair<node*,pair<int,int>>p=que.front();
+                que.pop();
+                if(mp[p.second.first].size()<1)
+                {
+                mp[p.second.first].push_back(p.first->data);
+                
+                
+                if(p.first->left)
+                {
+                    que.push({p.first->left,{p.second.first-1,p.second.second+1}});
+                }
+                if(p.first->right)
+                {
+                    que.push({p.first->right,{p.second.first+1,p.second.second+1}});
+                }
+                }
+                
+            }
+            for(auto a:mp )
+             {         
+                 cout<<a.second[0]<<","<<endl;
+             }
+             
+        }
     void vertical_order_traversal(node*root)//vertical order traversal
         {
             queue<pair<node*,pair<int,int>>>que;
@@ -407,6 +439,7 @@ int main()
     int j=-1;
     m.left_view(root,0,j);   
     m.right_view(root,0,j);
+    m.top_view(root);
     m.vertical_order_traversal(root);
     
     return 0;
