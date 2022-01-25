@@ -1,11 +1,4 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <iostream>
 #include<queue>
 #include<stack>
@@ -407,6 +400,89 @@ class node{
             cout<<endl;
              }
         }
+    void bottom_view(node*root)
+        {
+            queue<pair<node*,pair<int,int>>>que;
+            que.push({root,{0,0}});
+            map<int,vector<int>>mp;
+            
+            while(que.size()>0)
+            {
+                pair<node*,pair<int,int>>p=que.front();
+                mp[p.second.first].push_back(p.first->data);
+                que.pop();
+               
+                if(p.first->left)
+                {
+                    que.push({p.first->left,{p.second.first-1,p.second.second+1}});
+                }
+                if(p.first->right)
+                {
+                    que.push({p.first->right,{p.second.first+1,p.second.second+1}});
+                }
+               
+                
+            }
+            for(auto a:mp )
+             {         
+                 cout<<a.second[a.second.size()-1]<<",";
+             }
+             
+        }
+        bool symmetricalormirror(node*root1,node*root2)
+        {
+            if(root1==nullptr and root2==nullptr)
+            {
+                return true;
+            }
+            if(root1==nullptr and root2!=nullptr)
+            {
+                return false;
+            }
+            if(root1!=nullptr and root2==nullptr)
+            {
+                return false;
+            }
+            if(root1->data!=root2->data)
+            {
+                return false;
+            }
+            bool a=symmetricalormirror(root1->left,root2->right);
+            bool b=symmetricalormirror(root1->right,root2->left);
+            if(a==false || b==false)
+            {
+                return false;
+            }
+            return true;
+            
+            
+            
+        }
+        void rootTonodepath(node*root,int a,vector<int>&vc,bool &check)
+        {
+            if(root==nullptr)
+            {
+                return;
+            }
+            if(root->data==a)
+            {
+            vc.push_back(root->data);
+            check=true;
+            return;
+            }
+            if(check==false)
+            {
+            vc.push_back(root->data);
+            rootTonodepath(root->left,a,vc,check);
+            rootTonodepath(root->right,a,vc,check);
+            if(check==false)
+            {
+            vc.pop_back();
+            
+            }
+            }
+        }
+        
     
 };
 
@@ -441,6 +517,16 @@ int main()
     m.right_view(root,0,j);
     m.top_view(root);
     m.vertical_order_traversal(root);
+    m.bottomview(root);
+    cout<<symmetricalormirror(root->left,root->right);
+    vector<int>vec;
+    int val=8;
+    bool check=false;
+    rootTonodepath(root,val,check);
+    for(auto a:vec)
+    {
+        cout<<a<<",";
+    }
     
     return 0;
 }
