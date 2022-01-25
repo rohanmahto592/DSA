@@ -11,4 +11,6 @@
 - <h5>Diameter of a BT</h5>
 - <h5>check if two tree are identical?</h5>
 - <h5>ZigZg traversal</h5>
+- <h5>Left view of binary tree</h5>
+- <h5>Right view of binary tree</h5>
 
