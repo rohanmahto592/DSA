@@ -482,6 +482,28 @@ class node{
             }
             }
         }
+        node* lca(node*root,node*a,node*b)
+            {
+                if(root==nullptr or root==a or root==b)
+                {
+                    return root;
+                }
+                node*l=lca(root->left,a,b);
+                node*r=lca(root->right,a,b);
+                if(l==nullptr)
+                {
+                    return r;
+                }
+                if(r==nullptr)
+                {
+                    return l;
+                }
+                else
+                {
+                    return root;
+                }
+            }
+
         
     
 };
@@ -527,6 +549,11 @@ int main()
     {
         cout<<a<<",";
     }
+    node*a=new node();
+    a->data=4;
+    node*b=new node();
+    b->data=7;
+    cout<<m.lca(root,a,b);
     
     return 0;
 }
