@@ -18,3 +18,4 @@
 - <h5> check if tree is symmetric or not??</h5>
 - <h5>Bottom view</h5>
 - <h5>rootTonodepath in binary tree</h5>
+- <h5>Lowest common ancestor</h5>
