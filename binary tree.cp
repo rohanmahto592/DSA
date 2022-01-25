@@ -243,13 +243,70 @@ class node{
             return false;
         }
         bool leftcheck=checkidentical(root1->left,root2->left);
-        bool rightcheck=checkidentical(root->right,root2->right);
+        bool rightcheck=checkidentical(root1->right,root2->right);
         if(leftcheck==false or rightcheck==false)
         {
             return false;
         }
         return true;
         
+        
+    }
+    void zigzagtraversal(node*root)///zigzag traversal using 2 stack
+    {
+        stack<node*>s1,s2;
+        s1.push(root);
+        bool f1=0;
+        while(true)
+        {
+            if(f1==0)
+            {
+             if(s1.size()>0)
+            {
+                while(s1.size()>0)
+                {
+                    node*p=s1.top();
+                    s1.pop();
+                    cout<<p->data<<",";
+                    if(p->left)
+                    {
+                        s2.push(p->left);
+                    }
+                    if(p->right)
+                    {
+                        s2.push(p->right);
+                    }
+                }
+                f1=1;
+            }
+            }
+            else
+            {
+                if(s2.size()>0)
+                {
+                    while(s2.size()>0)
+                    {
+                        node*p=s2.top();
+                        s2.pop();
+                        cout<<p->data<<",";
+                        if(p->right)
+                        {
+                            s1.push(p->right);
+                        }
+                        if(p->left)
+                        {
+                            s1.push(p->left);
+                        }
+                    }
+                    f1=0;
+                }
+            }
+            if(s1.size()==0 and s2.size()==0)
+            {
+                break;
+            }
+            
+        }    
         
     }
 };
@@ -278,7 +335,7 @@ int main()
     root1=root2=0;
     root1=m.create();
     root2=m.create();
-    
     cout<<m.checkidentical(root1,root2);
+    m.zigzagtraversal(root);
     return 0;
 }
