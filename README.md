@@ -14,4 +14,6 @@
 - <h5>Left view of binary tree</h5>
 - <h5>Right view of binary tree</h5>
 - <h5>Top view of binary tree</h5>
-- <h5>Vertical view of binary tree</h5>
+- <h5>Vertical order of binary tree</h5>
+- <h5>Bottom view</h5>
+- <h5>rootTonodepath in binary tree</h5>
