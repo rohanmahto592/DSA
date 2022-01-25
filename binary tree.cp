@@ -309,6 +309,42 @@ class node{
         }    
         
     }
+    void left_view(node*root,int i, int&j)//left view of a binary tree
+        {
+            
+            if(root==nullptr)
+            {
+                return;
+            }
+            if(i>j)
+            {
+                cout<<root->data<<",";
+            }
+            j=i;
+            
+            left_view(root->left,i+1,j);
+            left_view(root->right,i+1,j);
+            
+            
+        }
+        void right_view(node*root,int i, int&j)// right view of a binary tree
+        {
+            
+            if(root==nullptr)
+            {
+                return;
+            }
+            if(i>j)
+            {
+                cout<<root->data<<",";
+            }
+            j=i;
+            
+            right_view(root->right,i+1,j);
+            right_view(root->left,i+1,j);
+            
+            
+        }
 };
 
 int main()
@@ -337,5 +373,20 @@ int main()
     root2=m.create();
     cout<<m.checkidentical(root1,root2);
     m.zigzagtraversal(root);
+    if(root)
+    {
+        cout<<root->data<<",";
+    }
+    if(root->left)
+    {
+        int j=-1;
+      m.left_view(root->left,0,j);
+    }
+   
+    if(root->right)
+    {
+        int j=-1;
+       m.right_view(root->right,0,j);
+    }
     return 0;
 }
