@@ -13,4 +13,5 @@
 - <h5>ZigZg traversal</h5>
 - <h5>Left view of binary tree</h5>
 - <h5>Right view of binary tree</h5>
-
+- <h5>Top view of binary tree</h5>
+- <h5>Vertical view of binary tree</h5>
