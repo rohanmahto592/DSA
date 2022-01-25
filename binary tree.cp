@@ -345,6 +345,37 @@ class node{
             
             
         }
+    void vertical_order_traversal(node*root)//vertical order traversal
+        {
+            queue<pair<node*,pair<int,int>>>que;
+            que.push({root,{0,0}});
+            map<int,vector<int>>mp;
+            
+            while(que.size()>0)
+            {
+                pair<node*,pair<int,int>>p=que.front();
+                mp[p.second.first].push_back(p.first->data);
+                que.pop();
+                if(p.first->left)
+                {
+                    que.push({p.first->left,{p.second.first-1,p.second.second+1}});
+                }
+                if(p.first->right)
+                {
+                    que.push({p.first->right,{p.second.first+1,p.second.second+1}});
+                }
+                
+            }
+            for(auto a:mp )
+             {         
+            for(auto z:a.second)
+            {
+                cout<<z<<",";
+            }
+            cout<<endl;
+             }
+        }
+    
 };
 
 int main()
@@ -376,6 +407,7 @@ int main()
     int j=-1;
     m.left_view(root,0,j);   
     m.right_view(root,0,j);
+    m.vertical_order_traversal(root);
     
     return 0;
 }
