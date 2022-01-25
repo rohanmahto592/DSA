@@ -2,6 +2,9 @@
 #include <iostream>
 #include<queue>
 #include<stack>
+#include<vector>
+#include<map>
+#include<set>
 using namespace std;
 
 class node{
