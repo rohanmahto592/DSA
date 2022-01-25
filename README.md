@@ -10,4 +10,5 @@
 - <h5>maximum path sum in a BT</h5>
 - <h5>Diameter of a BT</h5>
 - <h5>check if two tree are identical?</h5>
+- <h5>ZigZg traversal</h5>
 
