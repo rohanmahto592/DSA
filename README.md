@@ -1,5 +1,5 @@
 # DSA
-<h2 style='color:red'>Binary tree questions</h3>
+<h1 >Binary tree questions</h1>
 --------------------------------------------
 - <h5> creation of binary tree</h5>
 - <h5> Inorder,preorder,postorder traversal using recursion</h5>
