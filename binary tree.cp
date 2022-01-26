@@ -506,8 +506,155 @@ class node{
                     return root;
                 }
             }
-
-        
+    node*childrensum(node*root)
+        {
+            if(root->left==nullptr and root->right==nullptr)
+            {
+                return root;
+            }
+            if(root->left==nullptr and root->right!=nullptr)
+            {
+                if(root->right->data>root->data)
+                {
+                    root->data=root->right->data;
+                }
+                else
+                {
+                    root->right->data=root->data;
+                }
+                return root;
+                
+            }
+            if(root->right==nullptr and root->left!=nullptr)
+            {
+                if(root->left->data>root->data)
+                {
+                    root->data=root->left->data;
+                }
+                else
+                {
+                    root->left->data=root->data;
+                }
+                return root;
+                
+            }
+            if((root->left->data+root->right->data)< root->data)
+            {
+                root->left->data=root->data;
+                root->right->data=root->data;
+            }
+            else if((root->left->data+root->right->data)>root->data)
+            {
+                root->data=root->left->data+root->right->data;
+            }
+            node*left=childrensum(root->left);
+            node*right=childrensum(root->right);
+            root->data=left->data+right->data;
+            return root;
+            
+            
+        }
+        void accesvalue(node*root,int k,node*check,vector<int>&values)
+        {
+            if(root==nullptr or root==check)
+            {
+                return;
+            }
+            if(k==0)
+            {
+                values.push_back(root->data);
+                return;
+            }
+            accesvalue(root->left,k-1,check,values);
+            accesvalue(root->right,k-1,check,values);
+            
+        }
+        void nodesatdistancek(vector<node*>vc,int k,vector<int>&finals)
+        {
+            int a=k;
+            for(int i=0;i<vc.size();i++)//5 1
+            {
+                k=k-i;
+                accesvalue(vc[i],k,a==k?nullptr:vc[i-1],finals);
+                k=a;
+               
+                
+            }
+            
+        }
+        int left_count(node*root,int c)
+        {
+            if(root==nullptr)
+            {
+                return c+1;
+            }
+            c++;
+            int l =left_count(root->left,c);
+            return l;
+            
+        }
+        int right_count(node*root,int c)
+        {
+            if(root==nullptr)
+            {
+                return c+1;
+            }
+            c++;
+            int l =right_count(root->right,c);
+            return l;
+            
+        }
+        int count_nodes(node*root)
+        {
+            if(root==nullptr)
+            {
+                return 0;
+            }
+            int c=0;
+            int left=left_count(root->left,c);
+            
+            int right=right_count(root->right,c);
+            
+            if(left==right)
+            {
+                return pow(2,left)-1;
+            }
+            else
+            {
+                int l=count_nodes(root->left);
+                int r=count_nodes(root->right);
+                return l+r+1;
+                
+            }
+        }
+        int j=0;
+        node*construct_from_preorder_inorder(int *preorder,int*inorder, int l,int h) 
+        {
+            if(l>h)
+            {
+                return nullptr;
+            }
+            node*z=new node();
+            z->data=preorder[j];
+            if(l==h)
+            {
+                j++;
+                return z;
+            }
+            int i;
+             for(  i=l;i<=h;i++)
+             {
+                 if(preorder[j]==inorder[i])
+                 {
+                     break;
+                 }
+             }
+               j++;
+                z->left=construct_from_preorder_inorder(preorder,inorder,l,i-1);
+                z->right=construct_from_preorder_inorder(preorder,inorder,i+1,h);
+                return z;
+                               
+        }      
     
 };
 
@@ -557,6 +704,40 @@ int main()
     node*b=new node();
     b->data=7;
     cout<<m.lca(root,a,b);
+    node*z=m.childrensum(root);
+    m.preorder(z);
+    vector<node*>vc2;
+    int num;
+    cin>>num;
+    int k;
+    cin>>k;
+    bool check=false;
+    m.rootTonodepath(root,num,vc2,check);
+    reverse(vc2.begin(),vc2.end());
+    vector<int>finals;
+    m.nodesatdistancek(vc2,k,finals);
+    for(auto z:finals)
+    {
+        cout<<z<<",";
+    }
+    cout<<m.count_nodes(root);
+    cout<<"enter array for preorder"<<endl;
+    int n;
+    cin>>n;
+    int preorder[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>preorder[i];
+    }
+    cout<<"enter array for inorder"<<endl;
+    int inorder[n];
+    for(int i=0;i<n;i++)
+    {
+        cin>>inorder[i];
+    }
+    node*tree=m.construct_from_preorder_inorder(preorder,inorder,0,n-1);
+    m.preorder(tree);
+    
     
     return 0;
 }
