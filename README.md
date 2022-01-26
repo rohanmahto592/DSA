@@ -19,3 +19,7 @@
 - <h5>Bottom view</h5>
 - <h5>rootTonodepath in binary tree</h5>
 - <h5>Lowest common ancestor</h5>
+- <h5>Child sum property </h5>
+- <h5>Root To Node Path</h5>
+- <h5>Node At a distance K</h5>
+- <h5>Construct Unique Binary Tree from preorder and inorder</h5>
