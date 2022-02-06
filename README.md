@@ -1,6 +1,6 @@
 # DSA
 <h1 >Binary tree questions</h1>
---------------------------------------------
+-----------------------------------------------------------------
 - <h5> creation of binary tree</h5>
 - <h5> Inorder,preorder,postorder traversal using recursion</h5>
 - <h5>Inorder,preorder,postorder traversal using iteration method</h5>
@@ -23,3 +23,14 @@
 - <h5>Root To Node Path</h5>
 - <h5>Node At a distance K</h5>
 - <h5>Construct Unique Binary Tree from preorder and inorder</h5>
+---
+<h1>Bounded knapsack variations</h1>
+-------------------------------------------------------------------
+- <h5>0/1 knapsack problem using recursion</h5>
+- <h5>0/1 knapsack using memoization</h5>
+- <h5>0/1 knapsack using tabulation</h5>
+- <h5>subset sum problem using recursion</h5>
+- <h5>subset problem using tabulation</h5>
+- <h5>count total number of subset for a given sum</h5>
+- <h5>minimum subset sum difference</h5>
+
