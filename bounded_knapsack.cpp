@@ -1,11 +1,4 @@
-/******************************************************************************
 
-Welcome to GDB Online.
-GDB online is an online compiler and debugger tool for C, C++, Python, Java, PHP, Ruby, Perl,
-C#, VB, Swift, Pascal, Fortran, Haskell, Objective-C, Assembly, HTML, CSS, JS, SQLite, Prolog.
-Code, Compile, Run and Debug online from anywhere in world.
-
-*******************************************************************************/
 #include <stdio.h>
 #include<iostream>
 #include<cstring>
@@ -223,30 +216,30 @@ int main()
     {
         cin>>weight[i];
     }
-    // for(int i=0;i<n;i++)
-    // {
-    //     cin>>value[i];
-    // }
-    // cout<<knapsack(n-1,weight,value,W);
-    // memset(tab,-1,sizeof(tab));
-    // cout<<knapsack_memoized(n-1,weight,value,W);
-    // cout<<knapsack_tabulation(n,W,weight,value);
-    // cout<<subset_problem(n-1,weight,W);
-    // cout<<subset_problem_tab(n,weight,W);
+    for(int i=0;i<n;i++)
+    {
+        cin>>value[i];
+    }
+    cout<<knapsack(n-1,weight,value,W);
+    memset(tab,-1,sizeof(tab));
+    cout<<knapsack_memoized(n-1,weight,value,W);
+    cout<<knapsack_tabulation(n,W,weight,value);
+    cout<<subset_problem(n-1,weight,W);
+    cout<<subset_problem_tab(n,weight,W);
     int sum=0;
     for(int i=0;i<n;i++)
     {
         sum+=weight[i];
     }
-    // if(sum%2!=0)
-    // {
-    //     cout<<"cannot be equal partition";
-    // }
-    // else
-    // {
-    //     cout<<subset_problem_tab(n,weight,sum/2);
-    // }
-    // cout<<count_subset_problem_tab(n,weight,W);
+    if(sum%2!=0)
+    {
+        cout<<"cannot be equal partition";
+    }
+    else
+    {
+        cout<<subset_problem_tab(n,weight,sum/2);
+    }
+    cout<<count_subset_problem_tab(n,weight,W);
     cout<<minimum_subset_sum_difference(n,sum/2,weight,sum);
     
   
