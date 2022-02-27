@@ -55,14 +55,20 @@
 ---
 <h1>String coding questions and interview questions</h1>
 --------------------------------------------------------------------
--<h5>Maximum subarray sum having a window size of k</h5>
--<h5>first negative number in each window of size k</h5>
--<h5>count total anagrams in a string having a complexity of n*(nlogn)</h5>
--<h5>count anagrams in a string having a complexity of order n</h5>
--<h5>find the maximum element from an array of each window of size k</h5>
--<h5>longest subarray of a given target</h5>
--<h5>longest substring with k unique characters</h5>
--<h5>longest substring without repeating characters</h5>
--<h5>minimum window substring,print the substring of minimum length of another given string</h5>
+- <h5>Maximum subarray sum having a window size of k</h5>
+- <h5>first negative number in each window of size k</h5>
+- <h5>count total anagrams in a string having a complexity of n*(nlogn)</h5>
+- <h5>count anagrams in a string having a complexity of order n</h5>
+- <h5>find the maximum element from an array of each window of size k</h5>
+- <h5>longest subarray of a given target</h5>
+- <h5>longest substring with k unique characters</h5>
+- <h5>longest substring without repeating characters</h5>
+- <h5>minimum window substring,print the substring of minimum length of another given string</h5>
 ---
 <h1>Greedy interview questions</h1>
+---------------------------------------------------------------------
+- <h5>Job sequence problem</h5>
+- <h5>Minimum platform needed for a train</h5>
+- <h5>fractional knapsack</h5>
+- <h5>N meetings in one room</h5>
+- <Minimum coin change needed</h5>
