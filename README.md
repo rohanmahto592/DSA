@@ -71,4 +71,4 @@
 - <h5>Minimum platform needed for a train</h5>
 - <h5>fractional knapsack</h5>
 - <h5>N meetings in one room</h5>
-- <Minimum coin change needed</h5>
+- <h5>Minimum coin change needed</h5>
